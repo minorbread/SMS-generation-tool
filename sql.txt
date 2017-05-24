@@ -1,0 +1,299 @@
+select count(distinct sno) as 选课人数 
+from sc
+
+select count(distinct cno) as 被选课数 
+from sc
+
+select top 1 * from sc 
+order by grade desc
+
+select sno, max(grade) as 最高分
+from sc group by sno
+
+select count(distinct sdept)as 系个数 
+from student
+
+select * from student 
+where ssex='男'
+
+select * from student 
+where sno='95001' or sno='95003'
+
+select * from student 
+where sname like '李%'
+
+select * from student 
+where sdept like 'IS'
+
+select * from student 
+where sname like '_立%'
+
+select top 2 * from student 
+order by sage
+
+select student.* from student,sc,course
+where student.sno=sc.sno and sc.cno=course.cno and course.cname='操作系统'
+
+select a.* from student a,student b
+where a.sage < b.sage and b.sname='张立'
+
+select * from student
+where sage < (select avg(sage) from student)
+
+select * from student
+where sno 
+not in(select a.sno from student a,sc where student.sno=sc.sno)
+
+select ssex,count(ssex) as 人数
+from student
+group by ssex
+
+select student.sname,avg(grade) as 平均成绩 from student inner join sc
+on student.sno=sc.sno group by student.sname
+
+select student.sname,avg(grade) as 平均成绩 from student inner join sc
+on student.sno=sc.sno group by student.sname having avg(grade)>85
+
+select * into student5 from student
+where 1+1=3
+
+update sc set grade=grade+2
+where sno='95002'
+
+delete from sc
+where grade in(
+select grade from sc 
+where cno=
+(select cno from course where cname='操作系统'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
